@@ -3,10 +3,16 @@ title: 关于
 date: 2020-12-16 01:39:33
 ---
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+这里是Anillc的blog XD  
+目前高三，关于页面以后再补充  
+就酱ww  
+
+__留言：__  
 
 <div id="comment"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 <script>
 var gitalk = new Gitalk({
