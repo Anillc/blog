@@ -3,10 +3,21 @@ title: 关于
 date: 2020-12-16 01:39:33
 ---
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+	id="607264991"
+  list-folded="true">
+</meting-js>
+
 这里是Anillc的blog XD  
 目前高三，关于页面以后再补充  
-就酱ww  
-
+就酱ww 
+ 
 __留言：__  
 
 <div id="comment"></div>
@@ -27,14 +38,3 @@ var gitalk = new Gitalk({
 
 gitalk.render('comment')
 </script>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-<meting-js
-	server="netease"
-	type="playlist"
-	id="607264991"
-  fixed="true">
-</meting-js>
