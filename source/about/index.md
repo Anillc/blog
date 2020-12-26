@@ -14,10 +14,18 @@ date: 2020-12-16 01:39:33
   list-folded="true">
 </meting-js>
 
-这里是Anillc的blog XD  
-目前高三，关于页面以后再补充  
-就酱ww 
- 
+这里是Anillc的blog  
+
+曾经整过好几次blog，上一次是自己用vue写的，现在迁移到了hexo，主题是自己写的[Merry](https://github.com/Anillc/merry)  
+
+上边的播放器用到了[MetingJS](https://github.com/metowolf/MetingJS)，是我网易的收藏列表的歌，但是网易给我删了好多，而且收费的歌还听不了，就酱叭  
+
+目前Anillc高三，可能没啥时间  
+
+联系我：
+- 邮箱：<an@kano.cat>  
+- QQ群：663876979  
+
 __留言：__  
 
 <div id="comment"></div>
