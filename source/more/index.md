@@ -19,7 +19,7 @@ __友链：__
 
 - MAKjust服务器: [https://makjust.com](https://nakjust.com)  
 
-- Anillc的api（还没开始做）: [https://api.ans.ee](https://api.ans.ee)  
+- Anillc的api: [https://api.ans.ee](https://api.ans.ee)  
 
 - Anillc的github: [https://github.com/Anillc](https://github.com/Anillc)  
 
