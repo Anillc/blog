@@ -10,11 +10,11 @@ date: 2021-01-29 05:07:04
 <!-- more -->
 
 <p>
-$$ \begin{align}
-S \to A a \\
-A \to a \\
-A \to \epsilon
-\end{align} $$
+$$ \begin{aligned}
+&1.\ S \to A a \\
+&2.\ A \to a \\
+&3.\ A \to \epsilon
+\end{aligned} $$
 </p>
 
 上次说到这个文法不是一个LL文法，这次我闲的蛋疼，把他的LR表写出来了  
@@ -34,11 +34,13 @@ A \to \epsilon
 我们再来考虑一个文法  
 
 <p>
-$$ If \to if\ B\ Elseif\ Else \\
-Elseif \to else\ if\ B\ Elseif \\
-Elseif \to \epsilon \\
-Else \to else\ B \\
-Else \to \epsilon $$
+$$ \begin{aligned}
+&If \to if\ B\ Elseif\ Else \\
+&Elseif \to else\ if\ B\ Elseif \\
+&Elseif \to \epsilon \\
+&Else \to else\ B \\
+&Else \to \epsilon
+\end{aligned} $$
 </p>
 
 这是一个if语句的简化版文法，这里就遇到了冲突，如果只靠LL(1)或者LR(1)是没有办法进行很好的处理的  
@@ -46,10 +48,12 @@ Else \to \epsilon $$
 但是如果我们优化一下文法  
 
 <p>
-$$ If \to if\ B\Else \\
-Else \to else\ B \\
-Else \to else\ If \\
-Else \to \epsilon $$
+$$ \begin{aligned}
+&If \to if\ B\ Else \\
+&Else \to else\ B \\
+&Else \to else\ If \\
+&Else \to \epsilon
+\end{aligned} $$
 </p>
 
 这样不就解决冲突了吗。而且如果我们把if语句当做B的一部分，文法还能进一步简化

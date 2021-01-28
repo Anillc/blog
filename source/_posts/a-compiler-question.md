@@ -10,9 +10,11 @@ date: 2021-01-26 23:32:42
 <!-- more -->
 
 <p>
-$$ S \to A a \\
-A \to a \\
-A \to \epsilon $$
+$$ \begin{aligned}
+&S \to A a \\
+&A \to a \\
+&A \to \epsilon
+\end{aligned} $$
 </p>
 
 这样一个文法明明没有二义性，但是对这个文法生成LL表却会出现冲突  
