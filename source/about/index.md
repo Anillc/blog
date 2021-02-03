@@ -16,7 +16,15 @@ date: 2020-12-16 01:39:33
 
 这里是Anillc的blog  
 
-![Metrics](https://metrics.lecoq.io/Anillc?template=classic&activity=1&languages=1&activity.limit=5&activity.days=14&activity.filter=all&config.timezone=Asia%2FShanghai&config.animated=true)  
+曾经整过好几次blog，上一次是自己用vue写的，现在迁移到了hexo，主题是自己写的[Merry](https://github.com/Anillc/merry)  
+
+上边的播放器用到了[MetingJS](https://github.com/metowolf/MetingJS)，是我网易的收藏列表的歌，但是网易给我删了好多，而且收费的歌还听不了，就酱叭  
+
+目前Anillc高三，可能没啥时间  
+
+联系我：
+- 邮箱：<an@kano.cat>  
+- QQ群：663876979  
 
 ![](https://img.shields.io/badge/Windows-blue?style=flat-square&logo=windows) ![](https://img.shields.io/badge/Android-blue?style=flat-square&logo=android) ![](https://img.shields.io/badge/Centos-blue?style=flat-square&logo=centos)  
 
@@ -30,15 +38,7 @@ date: 2020-12-16 01:39:33
 
 ![](https://img.shields.io/badge/Jvm-blue?style=flat-square&logo=java) ![](https://img.shields.io/badge/Node.js-blue?style=flat-square&logo=node.js)  
 
-曾经整过好几次blog，上一次是自己用vue写的，现在迁移到了hexo，主题是自己写的[Merry](https://github.com/Anillc/merry)  
-
-上边的播放器用到了[MetingJS](https://github.com/metowolf/MetingJS)，是我网易的收藏列表的歌，但是网易给我删了好多，而且收费的歌还听不了，就酱叭  
-
-目前Anillc高三，可能没啥时间  
-
-联系我：
-- 邮箱：<an@kano.cat>  
-- QQ群：663876979  
+![Metrics](https://metrics.lecoq.io/Anillc?template=classic&activity=1&languages=1&activity.limit=5&activity.days=14&activity.filter=all&config.timezone=Asia%2FShanghai&config.animated=true)  
 
 __留言：__  
 
