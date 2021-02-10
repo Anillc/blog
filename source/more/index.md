@@ -13,9 +13,9 @@ __友链：__
 
 - 鹿乃的猫: [https://kano.cat](https://kano.cat)  
 
-- 鹿乃音乐合集：[https://kano.auqhjjqdo.xyz/](https://kano.auqhjjqdo.xyz/)  
+- 鹿乃音乐合集：[https://music.ans.ee](https://music.ans.ee)  
 
-- 另一个鹿乃音乐合集：[https://music.kanodayo.tk](https://music.kanodayo.tk)  
+- 另一个鹿乃音乐合集：[https://kano.auqhjjqdo.xyz/](https://kano.auqhjjqdo.xyz/)  
 
 - MAKjust服务器: [https://makjust.com](https://nakjust.com)  
 
