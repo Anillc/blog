@@ -26,7 +26,7 @@ date: 2020-12-16 01:39:33
 - 邮箱：<an@kano.cat>  
 - QQ群：663876979  
 
-![](https://img.shields.io/badge/Windows-blue?style=flat-square&logo=windows) ![](https://img.shields.io/badge/Android-blue?style=flat-square&logo=android) ![](https://img.shields.io/badge/Centos-blue?style=flat-square&logo=centos)  
+![](https://img.shields.io/badge/Windows-blue?style=flat-square&logo=windows) ![](https://img.shields.io/badge/Android-blue?style=flat-square&logo=android)  
 
 ![](https://img.shields.io/badge/IntelliJ%20idea-blue?style=flat-square&logo=intellij-idea) ![](https://img.shields.io/badge/Visual%20Studio%20Code-blue?style=flat-square&logo=visual-studio-code) ![](https://img.shields.io/badge/Vim-blue?style=flat-square&logo=vim)  
 
