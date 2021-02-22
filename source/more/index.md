@@ -25,3 +25,5 @@ __友链：__
 
 - Anillc的github: [https://github.com/Anillc](https://github.com/Anillc)  
 
+- Anillc的爱发电: [https://afdian.net/@anillc](https://afdian.net/@anillc)  
+
