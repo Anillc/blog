@@ -1,7 +1,5 @@
-# 此处为gravatar，填写邮箱
-avatar: an@kano.cat
+avatar: 'https://gravatar.loli.net/avatar/5df946d48b36e6f8061cdfe7ebcdf75c?s=512'
 
-# 标题下的链接
 links:
   Github: https://github.com/Anillc
   Kanocat: https://kano.cat

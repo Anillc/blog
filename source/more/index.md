@@ -7,6 +7,8 @@ date: 2020-12-27 00:39:35
 
 __友链：__  
 
+- Lss233: [https://lss233.com](https://lss233.com)  
+
 - Lonay: [https://lonay.me](https://lonay.me)  
 
 - 加酱: [https://lijiakaijun.me/](https://lijiakaijun.me/)  
