@@ -869,9 +869,9 @@ hexo-server@^2.0.0:
     serve-static "^1.14.1"
 
 hexo-theme-merry@^1.1.0:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/hexo-theme-merry/-/hexo-theme-merry-1.1.3.tgz#296667e53263b3880b1377875e16cd9feec13273"
-  integrity sha512-NxzTKYRcg2okOdN1phKhD6UzEhc5LpTZubOAOxHYzoByZSGfog/2nDc1p/sZ2B/MslHxuBEbObCViKn5Ea/nCg==
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/hexo-theme-merry/-/hexo-theme-merry-1.1.6.tgz#50d81f2a87b9035022dfd05ef8a37485ac53a707"
+  integrity sha512-zOqtk3809v5RUG7xw3ayrvBjtpEUExSz3hVyq5n8Salco1dddn9CxqkWemvXxgNN91msH9NrQD4oXqjI2no/Eg==
 
 hexo-toc@^1.1.0:
   version "1.1.0"
