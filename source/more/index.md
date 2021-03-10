@@ -7,23 +7,25 @@ date: 2020-12-27 00:39:35
 
 __友链：__  
 
-- Lss233: [https://lss233.com](https://lss233.com)  
+- [Moecast](https://blog.cas7.moe/)  
 
-- Lonay: [https://lonay.me](https://lonay.me)  
+- [Lss233](https://lss233.com)  
 
-- 加酱: [https://lijiakaijun.me/](https://lijiakaijun.me/)  
+- [Lonay](https://lonay.me)  
 
-- Thinking Null: [https://awsl.blog](https://awsl.blog)  
+- [加酱](https://lijiakaijun.me/)  
 
-- 鹿乃的猫: [https://kano.cat](https://kano.cat)  
+- [Thinking Null](https://awsl.blog)  
 
-- 鹿乃音乐合集：[https://music.ans.ee](https://music.ans.ee)  
+- [鹿乃的猫](https://kano.cat)  
 
-- 另一个鹿乃音乐合集：[https://kano.auqhjjqdo.xyz](https://kano.auqhjjqdo.xyz/)  
+- [鹿乃音乐合集](https://music.ans.ee)  
 
-- MAKjust服务器: [https://makjust.com](https://nakjust.com)  
+- [另一个鹿乃音乐合集](https://kano.auqhjjqdo.xyz/)  
 
-- Anillc的api: [https://api.anillc.cn](https://api.anillc.cn)  
+- [MAKjust Minecraft服务器](https://nakjust.com)  
+
+- [Anillc的api](https://api.anillc.cn)  
 
 - Anillc的github: [https://github.com/Anillc](https://github.com/Anillc)  
 
