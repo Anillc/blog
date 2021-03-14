@@ -27,7 +27,7 @@ __友链：__
 
 - [Anillc的api](https://api.anillc.cn)  
 
-- Anillc的github: [https://github.com/Anillc](https://github.com/Anillc)  
+- [Anillc的github](https://github.com/Anillc)  
 
-- Anillc的爱发电: [https://afdian.net/@anillc](https://afdian.net/@anillc)  
+- [Anillc的爱发电](https://afdian.net/@anillc)  
 

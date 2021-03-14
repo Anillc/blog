@@ -55,8 +55,7 @@ var gitalk = new Gitalk({
   owner: 'Anillc',
   admin: ['Anillc'],
   title: 'About Comments',
-  id: 'about-comments',
-  proxy: 'https://shielded-brushlands-08810.herokuapp.com/https://github.com/login/oauth/access_token'
+  id: 'about-comments'
 })
 
 gitalk.render('comment')

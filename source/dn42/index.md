@@ -20,8 +20,8 @@ You can tell me the following information by email at <i@anillc.cn>
 ### My nodes:  
 
 _Las Vegas, US_  
-- ASN: 4242422526  
-- Wireguard Endpoint: las.awsl.ee:<last 5 digests of your ASN>  
+- ASN: `4242422526`  
+- Wireguard Endpoint: `las.awsl.ee:<last 5 digests of your ASN>`  
 - Wireguard Public Key: `NQfs6evQLemuJcdcvpO4ds1wXwUHTlzlQXWTJv+WCXY=`  
 - DN42 IPv4: `172.22.167.97`  
 - DN42 IPv6: `fdc9:83c1:d0ce::1`  
