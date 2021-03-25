@@ -24,4 +24,4 @@ _Las Vegas, US_
 - DN42 IPv4: `172.22.167.97`  
 - DN42 IPv6: `fdc9:83c1:d0ce::1`  
 - Link-Local: `fe80::2526`  
-
+- Multiprocotol BGP: `✓`
