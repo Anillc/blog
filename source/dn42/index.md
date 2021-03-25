@@ -15,6 +15,8 @@ You can tell me the following information by email at <i@anillc.cn>
 
 > I am a senior high school student, which is preparing for the college examination. So, I may check my mailbox with a low frequency.  
 
+My looking glass: [https://lg.awsl.ee](https://lg.awsl.ee)  
+
 ### My nodes:  
 
 _Las Vegas, US_  
@@ -24,4 +26,4 @@ _Las Vegas, US_
 - DN42 IPv4: `172.22.167.97`  
 - DN42 IPv6: `fdc9:83c1:d0ce::1`  
 - Link-Local: `fe80::2526`  
-- Multiprocotol BGP: `✓`
+- Multiprocotol BGP: `✓`  
