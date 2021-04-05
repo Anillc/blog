@@ -13,7 +13,7 @@ __友链：__
 
 - [Lonay](https://lonay.me)  
 
-- [加酱](https://lijiakaijun.me/)  
+- [加酱](https://blog.lijiakaijun.cyou)  
 
 - [Thinking Null](https://awsl.blog)  
 
