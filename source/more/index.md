@@ -19,9 +19,9 @@ __友链：__
 
 - [鹿乃的猫](https://kano.cat)  
 
-- [鹿乃音乐合集](https://music.ans.ee)  
+- [鹿乃音乐合集](https://kanosuki.com:1224)  
 
-- [另一个鹿乃音乐合集](https://kano.auqhjjqdo.xyz/)  
+- [另一个鹿乃音乐合集](https://music.ans.ee)  
 
 - [MAKjust Minecraft服务器](https://nakjust.com)  
 

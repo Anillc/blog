@@ -28,7 +28,7 @@ _Las Vegas, US_
 - Link-Local: `fe80::2526`  
 - Multiprocotol BGP: `✓`  
 
-_CN_
+_Hangzhou, CN_
 - ASN: `4242422526`  
 - Wireguard Endpoint: `Please contact me`  
 - Wireguard Public Key: `KeFXdDISGokH6uPS0WUk1CmMCU5V08zULQ8NWIT+DCM=` 

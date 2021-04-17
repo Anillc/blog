@@ -7,6 +7,10 @@ date: 2021-02-21 20:35:46
 
 <!-- more -->
 
+因为chevereto没办法满足自己的需求，所以这个被我干掉了  
+
+---  
+
 试了下用[docker-chevereto](https://github.com/linuxserver/docker-chevereto)和rclone来建了一个[图床](https://img.anillc.cn)  
 
 用rclone的原因是为了使用巨硬的e5开发者计划  
