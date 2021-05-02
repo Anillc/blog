@@ -7,6 +7,8 @@ date: 2020-12-27 00:39:35
 
 __友链：__  
 
+- [長門有希](https://blog.yuki-nagato.com/)  
+
 - [Moecast](https://blog.cas7.moe/)  
 
 - [Lss233](https://lss233.com)  
