@@ -38,6 +38,10 @@ date: 2020-12-16 01:39:33
 
 ![](https://img.shields.io/badge/Jvm-blue?style=flat-square&logo=java) ![](https://img.shields.io/badge/Node.js-blue?style=flat-square&logo=node.js)  
 
+我什么时候能不那么菜  
+
+![](https://osusig.lolicon.app/sig.php?colour=hex66ccff&uname=Anillc&mode=3&pp=2)  
+
 ![Metrics](https://metrics.lecoq.io/Anillc?template=classic&activity=1&languages=1&activity.limit=5&activity.days=14&activity.filter=all&config.timezone=Asia%2FShanghai&config.animated=true)  
 
 __留言：__  
