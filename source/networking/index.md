@@ -3,7 +3,9 @@ title: Networking
 date: 2021-03-09 17:19:00
 ---
 
-![Anillc Network](/img/logo.svg)  
+<p style="text-align: center">
+  <img src="/img/logo.svg" alt="Anillc Network"/>
+</p>
 
 [简体中文](/networking-zh)  
 
