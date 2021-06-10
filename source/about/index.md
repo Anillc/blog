@@ -20,10 +20,8 @@ date: 2020-12-16 01:39:33
 
 上边的播放器用到了[MetingJS](https://github.com/metowolf/MetingJS)，是我网易的收藏列表的歌，但是网易给我删了好多，而且收费的歌还听不了，就酱叭  
 
-目前Anillc高三，可能没啥时间  
-
 联系我：
-- 邮箱：<an@kano.cat>  
+- 邮箱：<i@anillc.cn>  
 - QQ群：663876979  
 
 ![](https://img.shields.io/badge/Windows-blue?style=flat-square&logo=windows) ![](https://img.shields.io/badge/Android-blue?style=flat-square&logo=android)  
