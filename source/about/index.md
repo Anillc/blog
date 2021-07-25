@@ -3,7 +3,13 @@ title: 关于
 date: 2020-12-16 01:39:33
 ---
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script>
+  window.location = 'https://ani.llc/'
+</script>
+
+See <https://ani.llc>
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
@@ -61,4 +67,4 @@ var gitalk = new Gitalk({
 })
 
 gitalk.render('comment')
-</script>
+</script> -->
