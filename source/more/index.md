@@ -7,6 +7,8 @@ date: 2020-12-27 00:39:35
 
 __友链：__  
 
+- [ITY's blog](https://7ity.codes/)  
+
 - [長門有希](https://blog.yuki-nagato.com/)  
 
 - [Moecast](https://blog.cas7.moe/)  
@@ -23,11 +25,7 @@ __友链：__
 
 - [鹿乃音乐合集](https://kanosuki.com:1224)  
 
-- [另一个鹿乃音乐合集](https://music.ans.ee)  
-
 - [MAKjust Minecraft服务器](https://nakjust.com)  
-
-- [Anillc的api](https://api.anillc.cn)  
 
 - [Anillc的github](https://github.com/Anillc)  
 
