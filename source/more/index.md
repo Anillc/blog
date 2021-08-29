@@ -7,6 +7,8 @@ date: 2020-12-27 00:39:35
 
 __友链：__  
 
+- [易姐的博客](https://shakaianee.top/)  
+
 - [LSC.MOE](https://lsc.moe/)  
 
 - [ITY's blog](https://7ity.codes/)  
