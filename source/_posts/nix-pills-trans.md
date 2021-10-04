@@ -17,7 +17,7 @@ date: 2021-10-03 17:08:48
 
 这是由 **Luca Bruno** (Lethalman) 在 2014 和 2015 年在博客上写的一系列文章. 这些文章以很短的章节 (被称为 `pill`) 介绍了 `Nix` 包管理器和 `Nixpkgs` 包集合.
 
-因为 `Nix Pills` 被认为是对 `nix` 的经典介绍，所以 2017 年 Graham Christensen (grahamc / gchristensen) 和其他贡献者试图把它迁移到现在的格式.
+`Nix Pills` 被认为是对 `nix` 的经典介绍，所以 2017 年 Graham Christensen (grahamc / gchristensen) 和其他贡献者试图把它迁移到现在的格式.
 
 如果你遇到问题, 请将他们报告到 [nixos/nix-pills](https://github.com/NixOS/nix-pills/issues) .
 
@@ -43,7 +43,7 @@ date: 2021-10-03 17:08:48
 
 ## 1.3 非纯函数式
 
-大多数广泛使用的软件包管理器 ([dkg](https://wiki.debian.org/dpkg), [rpm](http://www.rpm.org/), ...) 修改系统的全局状态. 如果一个包 `foo-1.0` 安装了一个二进制文件到 `/usr/bin/foo ` , 除非你修改安装路径或者二进制文件的名字, 你就不能安装 `foo-1.1` . 但是更改二进制文件的名字意味着破坏使用这个二进制文件的程序.
+大多数被广泛使用的软件包管理器 ([dkg](https://wiki.debian.org/dpkg), [rpm](http://www.rpm.org/), ...) 都会修改系统的全局状态. 如果一个包 `foo-1.0` 安装了一个二进制文件到 `/usr/bin/foo` , 除非你修改安装路径或者二进制文件的名字, 你就不能安装 `foo-1.1` . 但是更改二进制文件的名字意味着破坏使用这个二进制文件的程序.
 
 有很多发行版尝试缓解这个问题. 比如 `Debian` , 用 [alternatives](https://wiki.debian.org/DebianAlternatives) 系统解决了部分问题.
 
