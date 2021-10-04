@@ -120,7 +120,7 @@ libc.so.6 => /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib/libc.so.
 
 ## 1.7 下一个 pill
 
-... 我们将会在您当前的系统上安装 Nix (我家是是 GNU/Linux, 但是我们也有 OSX 用户) 并开始检查现有软件.
+... 我们将会在您当前的系统上安装 Nix (我假设各位使用 GNU/Linux, 但是我们也有 OSX 用户) 并开始检查现有软件.
 
 ---
 
