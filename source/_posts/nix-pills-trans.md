@@ -5,6 +5,8 @@ date: 2021-10-03 17:08:48
 
 最近在学习 `NixOS` , 但是中文资料非常少，于是我决定边看边翻译 <https://nixos.org/guides/nix-pills/> . 翻译水平不高, 请谅解. 如果有错误, 欢迎到 [GIthub]() 上创建 `issues` .
 
+Version 20210221125542-f1acd7e
+
 > Working In Progress
 
 <!-- more -->
@@ -25,7 +27,7 @@ date: 2021-10-03 17:08:48
 
 ---
 
-# 第一章 为什么你应该试一下 `Nix`
+# 第一章 为什么你应该试一下 Nix
 
 ## 1.1 介绍
 
@@ -118,10 +120,161 @@ libc.so.6 => /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib/libc.so.
 
 考虑到 [Nixpkgs](https://nixos.org/nixpkgs/) ([Github 链接](https://github.com/NixOS/nixpkgs)) 是一个为所有软件创建的全新的仓库, 拥有全新的概念. 核心的开发人员很少, 但总体上逐年增加. 换句话说, 这是值得您投资的.
 
-## 1.7 下一个 pill
+## 1.7 下一个 Pill
 
 ... 我们将会在您当前的系统上安装 Nix (我假设各位使用 GNU/Linux, 但是我们也有 OSX 用户) 并开始检查现有软件.
 
 ---
 
+# 第二章 在您的系统上安装 Nix
+
+欢迎来到第二章. 我们先简要地介绍一下 `Nix`.
+
+现在我们即将在您的电脑上安装 `Nix` 并且让您明白接下来会在系统上发生些什么变化. 如果您正在使用 `NixOS` , 那么 `Nix` 已经在您的电脑上安装完成了, 您可以跳到[下一章](#第三章-进入环境).
+
+安装 `Nix` 和安装其他软件一样简单, 它不会剧烈地改变我们的系统, 它将会远离我们的现有系统.
+
+## 2.1 安装
+
+以非 `root` 账户运行 `curl -L https://nixos.org/nix/install | sh` 然后根据提示完成安装. 如果您更喜欢下载安装脚本并使用 `GPG` 签名检测脚本, 您可以跟随 <https://nixos.org/nix/download.html> 完成安装.
+
+这些文章并不是使用 `Nix` 的教程, 我们会通过 `Nix` 来了解他们的基本原理.
+
+第一件要注意的事是: `derivations` 会在 `Nix store` 中引用其他的 `derivations` . 他们不适用我们系统中已经存在的 `libc` 或者其他任何东西. 这是一个包含运行软件所需要的所有包的自包含的 `store` .
+
+> 注意: 在为多用户安装时, 例如使用 `NixOS` 的时候, `store` 是被 `root` 所拥有的, 其他用户可以通过 `Nix daemon` 来安装和构建软件. 你可以通过阅读这篇文章来了解更多关于多用户安装 `Nix` 的信息: <https://nixos.org/nix/manual/#ssec-multi-user>
+
+## 2.2 了解 Nix store
+
+观察安装命令的输出:
+
+```bash
+copying Nix to /nix/store..........................
+```
+
+这正是我们在第一篇文章提到的 `/nix/store` . 我们拷贝必要的文件以启动 `Nix` . 可以看到 `bash` , `coreutils` , `C` 语言工具链, `perl` 库,  `sqlite` 以及 `Nix` 本身以及 `libnix` .
+
+您可能已经注意到了, `/nix/store` 并不只包含文件夹, 也会有一些文件, 这些文件也是以 `hash-name` 格式的名字存在的.
+
+## Nix 数据库
+
+当拷贝完 `store` 之后, 安装程序将会初始化数据库:
+
+```bash
+initialising Nix database...
+```
+
+`Nix` 在 `/nix/var/nix/db` 有一个数据库, 他是一个用来跟踪每两个 `derivation` 间依赖的数据库.
+
+数据库的结构非常简单: 有一张从一个自增整数映射到一个有效的 `store` 路径的表.
+
+你可以通过安装 sqlite (`nix-env -iA sqlite -f '<nixpkgs>'`) 并运行 `sqlite3 /nix/var/nix/db/db.sqlite` 来查看数据库.
+
+> 注意: 如果这是您在安装后第一次运行 `Nix` , 您需要先重新打开您的终端以更新您的 `shell` 环境
+
+> 注意: 除非您__真的__知道您在做什么, 永远不要手动更改 `/nix/store` . 如果您这样做了将不会更新到 `sqlite` 数据库.
+
+## 2.4 第一个 Profile
+
+在接下来的安装中, 我们会遇到 `profile` 的概念
+
+```bash
+creating /home/nix/.nix-profile
+installing 'nix-2.1.3'
+building path(s) `/nix/store/a7p1w3z2h8pl00ywvw6icr3g5l9vm5r7-user-environment'
+created 7 symlinks in user environment
+```
+
+`Nix` 中的 `profile` 是实现回滚通用和实用的概念. `profiles` 用于组合散布在多个路径下的组件. 不仅如此, `profile` 还由很多版本化的 `generation` 组成, 当你更改一个 `profile` 的时候, 就会生成新的 `generation` .
+
+`generations` 可以原子性地切换和回滚, 这让管理系统变得非常方便.
+
+让我们仔细看看 `profile` :
+
+```bash
+$ ls -l ~/.nix-profile/
+bin -> /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/bin
+[...]
+manifest.nix -> /nix/store/q8b5238akq07lj9gfb3qb5ycq4dxxiwm-env-manifest.nix
+[...]
+share -> /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/share
+```
+
+`nix-2.1.3 derivation` 就是包含二进制文件和库的 `Nix store` 本身. 安装 `derivation` 到 `profile` 的过程通过符号链接基本上重现了 `nix-2.1.3 derivation` 的层次结构.
+
+`profile` 的内容非常特别, 因为只有一个程序被安装进了我们的 `profile` , `bin` 目录指向了唯一一个程序, 也就是 `Nix` 本身.
+
+但是这只是我们最新的 `generation` 的 `profile` . 事实上 `~/.nix-profile` 是指向 `/nix/var/nix/profiles/default` 的符号链接.
+
+同样, 这也是一个指向 `default-1-link` 的符号链接. 对, 这意味着这是第一个 `generation` 的 `profile` .
+
+最后, `default-1-link` 指向了 `nix store` 用户环境的 `derivation ` , 就如您在安装过程中看到的那样.
+
+我们将在下一篇文章中更加详细地讲解 `manifest.nix` .
+
+## 2.5 Nixpkgs 表达式
+
+从安装程序那里看到的更多的输出:
+
+```bash
+downloading Nix expressions from `http://releases.nixos.org/nixpkgs/nixpkgs-14.10pre46060.a1a2851/nixexprs.tar.xz'...
+unpacking channels...
+created 2 symlinks in user environment
+modifying /home/nix/.profile...
+```
+
+[Nix 表达式](https://nixos.org/nix/manual/#chap-writing-nix-expressions)通常用来描述一个包以及如何构建他们. [Nixpkgs0(https://nixos.org/nixpkgs/) 是包含这些所有表达式的仓库.
+
+安装程序从 `commit a1a2851` 中获取到包的描述.
+
+我们可以发现第二个 `profile` 是 `channels profile` . `~/.nix-defexpr/channels` 指向了 `/nix/var/nix/profiles/per-user/nix/channels` , 后者也指向了 `channels-1-link` , 最后指向了包含已经下载好的 `Nix` 表达式的 `Nix store` 文件夹.
+
+`channels` 是一个可以被下载的包和表达式的集合. 类似 `Debian` 的 `stable` 和 `unstable` , `channels` 也有 `stable` 和 `unstable` .
+
+不要担心 `Nix` 表达式, 我们之后会获取他们.
+
+最后, 为了方便, 安装程序会修改 `~/.profile` 来自动进入 `Nix` 环境. `~/.nix-profile/etc/profile.d/nix.sh` 做的只是简单地把 `~/.nix-profile/bin` 加入到 `PATH` , 把 `~/.nix-defexpr/channels/nixpkgs` 加入到 `NIX_PATH` . 我们之后会讨论 `NIX_PATH` .
+
+您可以阅读一下 `nix.sh` , 它非常短.
+
+## 2.6 FAQ: 我能不能修改 /nix 到其他位置?
+
+能. 但是有使用 `/nix` 有比使用其他文件夹更好的理由. 所有的 `derivation` 通过绝对路径依赖其他的 `derivation` . 我们在第一篇文章的时候就已经看到 `bash` 通过绝对路径引用了一个 `/nix/store` 里的 `glibc` .
+
+您可以自己看看, 不要担心如果您看到了多个 `bash` 的 `derivation` :
+
+```bash
+$ ldd /nix/store/*bash*/bin/bash
+[...]
+```
+
+保持 `store` 在 `/nix` 中意味着我们可以从 `nixos.org` 中获取 `binary cache` (就如同您从 `Debian` 镜像中获取包)
+
+想象一下:
+
+- `glibc` 被安装在 `/foo/store`
+- 因此 `bash` 需要引用 `/foo/store` 下的 `glibc` 而不是 `/nix/store` 文件夹
+- `binary cache` 没有办法提供帮助, 因为我们需要不一样的 `bash` , 我们必须要自己重新编译所有东西
+
+所以把 `store` 放在 `/nix` 中是明智之举.
+
+## 2.7 结论
+
+我们已经在我们的系统上安装了由 `nix` 用户拥有的完全隔离的 `Nix` .
+
+我们学习了一些新的概念, 比如 `profile` 和 `channel` . 我们可以通过 `profile` 来管理不同 `generation` 的不同包的组合, 通过 `channel` 来从 `nixos.org` 下载二进制文件.
+
+安装程序把所有东西都放在了 `/nix` 文件夹并创建了指向 `Nix` 用户的 `home` 的符号链接, 这是让每个用户都能在他自己的环境下安装和使用软件.
+
+我希望我没有遗漏任何东西以至于让您感觉到幕后有魔法. 一切组件都放在 `store` 中并使用符号链接将这些组件组合在一起.
+
+## 2.8 下一个 Pill
+
+... 我们将会进入 `Nix` 环境并学习如何与 `store` 交互.
+
+---
+
+# 第三章 进入环境
+
 > Working In Progress
+
