@@ -122,7 +122,7 @@ libc.so.6 => /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib/libc.so.
 
 ## 1.7 下一个 Pill
 
-... 我们将会在您当前的系统上安装 Nix (我假设各位使用 GNU/Linux, 但是我们也有 OSX 用户) 并开始检查现有软件.
+... 我们将会在您当前的系统上安装 Nix (我假设各位使用 GNU/Linux, 但是我们也有 OSX 用户) 并开始学习工具.
 
 ---
 
@@ -275,6 +275,226 @@ $ ldd /nix/store/*bash*/bin/bash
 ---
 
 # 第三章 进入环境
+
+欢迎来到第三章. 在[第二篇](#第二章-在您的系统上安装-Nix)文章中我们在您的系统上安装了 `Nix` . 现在我们终于可以开始玩玩了, 这些内容也适用于 `NixOS` 用户.
+
+## 3.1 进入环境
+
+__如果您正在使用 `NixOS` , 您可以[跳过](#3.2-安装一些东西)这个步骤__
+
+在上一篇文章中我们创建了一个 `Nix` 用户, 所以让我们用 `su - nix` 切换到它. 如果您的 `~/.profile` 已经被执行了, 您应该就可以使用 `nix-env` 和 `nix-store` 指令了.
+
+如果不能执行, 尝试
+
+```bash
+$ source ~/.nix-profile/etc/profile.d/nix.sh
+```
+
+## 3.2 安装一些东西
+
+终于有实用的东西了! 安装东西进 `Nix` 环境是一个有趣的过程. 让我们来安装一下 `hello` 吧, 这是一个简单的命令行工具, 它会打印 `Hello world` 到终端上. 这个软件主要是用来测试编译器和包是否有安装好的.
+
+```bash
+$ nix-env -i hello
+installing 'hello-2.10'
+[...]
+building '/nix/store/0vqw0ssmh6y5zj48yg34gc6macr883xk-user-environment.drv'...
+created 36 symlinks in user environment
+```
+
+现在您可以运行 `hello` . 注意以下几点:
+
+- 我们以用户的身份安装了软件, 并且只适用于 `Nix` 用户.
+- 它会创建一个新的用户环境, 这是我们 `Nix` 用户的 `profile` 的一个新 `generation`
+- `nix-env` 指令是管理环境, `profile` , 以及它们的 `generation` 的工具
+- 我们通过 `derivation` 名与版本安装上了 `hello` . 我重复一遍: 我们__指定__了 `derivation` 名 (和版本) 来安装它
+
+我们可以不用进入 `/nix` 文件夹也能查看 `generation` :4
+
+```bash
+$ nix-env --list-generations
+   1   2014-07-24 09:23:30
+   2   2014-07-25 08:45:01   (current)
+```
+
+列出已经安装的 `derivation` :
+
+```bash
+$ nix-env -q
+nix-2.1.3
+hello-2.10
+```
+
+那么, `hello` 究竟被安装到了哪里呢? 使用 `which hello` 指令得到的结果是指向 `Nix store` 的 `~/.nix-profile/bin/hello` . 我们同样也可以通过 `nix-env -q --out-path` 来列出 `derivation` 路径. 这些 `derivation` 路径就被称作构建的__输出 (output)__.
+
+## 3.3 路径合并
+
+这个时候你可能想要运行 `man` 来获得一些文档. 即使您在 `Nix` 环境之外已经有了 `man` , 您也可以通过 `nix-env -i man-db` 在 `Nix` 中安装和使用它. 像之前一样, 它将会创建一个新的 `generation` , 然后 `~/.nix-profile` 将会指向它.
+
+让我们查看一下 `profile` :
+
+```bash
+$ ls -l ~/.nix-profile/
+dr-xr-xr-x 2 nix nix 4096 Jan  1  1970 bin
+lrwxrwxrwx 1 nix nix   55 Jan  1  1970 etc -> /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/etc
+[...]
+```
+
+现在这很有趣. 当我们只安装了 `nix-2.1.3` 的时候 `bin` 被符号链接到了 `nix-2.1.3` . 现在我们实际上已经安装了一些东西 (`man, hello`), 它变成了一个真正的文件夹而不是符号链接.
+
+```bash
+$ ls -l ~/.nix-profile/bin/
+[...]
+man -> /nix/store/83cn9ing5sc6644h50dqzzfxcs07r2jn-man-1.6g/bin/man
+[...]
+nix-env -> /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/bin/nix-env
+[...]
+hello -> /nix/store/58r35bqb4f3lxbnbabq718svq9i2pda3-hello-2.10/bin/hello
+[...]
+```
+
+OK, 现在更清晰了. `nix-env` 从已经安装的 `derivation` 中合并了这些路径. `which man` 指向了 `Nix profile` 而不是系统里的 `man` , 因为 `~/.nix-profile/bin` 在 `$PATH` 的开头.
+
+## 3.4 回滚与切换 generation
+
+上一条命令我们安装了 `man`, 除非您在中途更改了一些东西, 我们现在处在第三个 `generation` . 让我来告诉你如何混滚到旧版本:
+
+```bash
+$ nix-env --rollback
+switching from generation 3 to 2
+```
+
+现在 `nix-env -q` 不再列出 `man` 了. ``ls -l `which man` `` 现在应该是您系统里的 `man` 了.
+
+回滚已经足够了, 让我们回到最近的 `generation` :
+
+```bash
+$ nix-env -G 3
+switching from generation 2 to 3
+```
+
+我希望您能阅读一下 `nix-env` 的 `manpage`. `nix-env` 需要一个操作符来执行, 有对每个操作通用的选项也有每个操作特定的选项.
+
+您当然也可以[卸载](https://nixos.org/nix/manual/#operation-uninstall)和[升级](https://nixos.org/nix/manual/#operation-upgrade)这些包.
+
+## 3.5 查询 store
+
+至今我们已经学习了如何查询和管理环境, 但是所有这些环境的组件都指向 `store` .
+
+为了查询和管理 `store` , 我们有一条 `nix-store` 指令, 可以用它来做一些有趣的事情, 但是我们目前将只会用来查询.
+
+查询 `hello` 的直接运行依赖:
+
+```bash
+$ nix-store -q --references `which hello`
+/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27
+/nix/store/58r35bqb4f3lxbnbabq718svq9i2pda3-hello-2.10
+```
+
+`nix-store` 的参数可以是任何东西, 只要它指向 `Nix store` .
+
+这可能现在对您来说没有意义, 但是我们查询依赖 `hello` 的文件:
+
+```bash
+$ nix-store -q --referrers `which hello`
+/nix/store/58r35bqb4f3lxbnbabq718svq9i2pda3-hello-2.10
+/nix/store/fhvy2550cpmjgcjcx5rzz328i0kfv3z3-env-manifest.nix
+/nix/store/mp987abm20c70pl8p31ljw1r5by4xwfw-user-environment
+```
+
+这是预期的吗? 事实证明, 我们的环境依赖 `hello` . 是的, 这意味着我们的环境在 `store` 里, 并且弹包含了到 `hello` 的符号链接, 因此环境依赖 `hello` .
+
+两个环境被列出来了, 第二个 `generation` 和第三个 `generation` , 因为这些环境安装了 `hello` .
+
+`manifest.nix` 文件包含了关于环境的信息, 比如哪些 `derivation` 被安装了, 所以 `nix-env` 可以列出, 升级或删除这些 `derivation` . 另外, 当前的 `manifest.nix` 可以在 ``~/.nix-profile/manifest.nix` 找到.
+
+## 3.6 闭包
+
+`derivation` 的闭包是它所有的依赖列表, 递归地包含了 `derivation` 需要的一切.
+
+```bash
+$ nix-store -qR `which man`
+[...]
+```
+
+拷贝所有以上 `derivation` 到另一台机器的 `Nix store` 中可以让您在另一台机器上实现 `man` 的开箱即用. 这是使用 `Nix` 进行部署的基础, 相信您已经看出来了 `Nix` 在云中部署软件的潜力 (提示: `nix-copy-closures` 和 `nix-store --export`).
+
+一个更漂亮的闭包输出:
+
+```bash
+$ nix-store -q --tree `which man`
+[...]
+```
+
+使用以上命令, 您可以更清晰地找出 `derivation` 运行时存在直接或间接依赖的原因.
+
+这同样也适用于环境. 作为练习, 尝试运行 `nix-store -q --tree ~/.nix-profile` , 可以看到第一个子项都依赖于用户环境: 已安装的用户环境和 `manifest.nix` .
+
+## 3.7 依赖的解决方案
+
+`Nix` 没有像需要解决 `SAT` 问题来满足版本上下行依赖关系的 `apt` 的这样的问题. `Nix` 没有必要这样做, 因为所有依赖都是静态的: 让一个 `derivation X` 依赖于 `derivation Y` , `X` 将永远依赖 `Y` . 依赖于 `Z` 的某个版本的 `X` 将会是不一样的 `derivation` .
+
+## 3.8 艰难的恢复
+
+```bash
+$ nix-env -e '*'
+uninstalling 'hello-2.10'
+uninstalling 'nix-2.1.3'
+[...]
+```
+
+oh, 这删除了所有的 `derivation` , 包括 `Nix` . 这意味着我们没有办法使用 `nix-env` 了, 怎么办?
+
+之前我们从环境中获取了 `nix-env` . 对用户来说, 环境非常方便, 但是 `Nix` 仍在 `store` 里!
+
+首先, 选一个 `nix-2.1.3` 的 `derivation` : `ls /nix/store/*nix-2.1.3` , 比如 `/nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3` .
+
+第一个选项是回滚:
+
+```bash
+$ /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/bin/nix-env --rollback
+```
+
+第二个选项是安装 `Nix` , 创建一个新的 `generation` :
+
+```bash
+$ /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/bin/nix-env -i /nix/store/ig31y9gfpp8pf3szdd7d4sf29zr7igbr-nix-2.1.3/bin/nix-env
+```
+
+## 3.9 Channels
+
+我们的包从哪里来? 我们在[第二章](#第二章-在您的系统上安装-Nix)的时候已经聊过了, 我们可以从一个 `channels` 列表里获取包, 尽管我们通常只用一个 `channel` . 这个管理 `channel` 的工具就是 `nix-channel` .
+
+```bash
+$ nix-channel --list
+nixpkgs http://nixos.org/channels/nixpkgs-unstable
+```
+
+如果您正在使用 `NixOS` , 那么您可能看到的结果跟上边有一点区别 (默认情况下), 您可能会看到 `channel` 的名字以 `nixos-` 开头而不是 `nixpkgs` .
+
+这实际上是 `~/.nix-channels `的内容.
+
+> 注意: `~/.nix-channels` 并不是指向 `store` 的符号链接.
+
+更新 `channel` 可以使用 `nix-channel --update` , 这会下载新的 `Nix` 表达式 (包的描述), 创建 `~/.nix-defexpr/channels` 下的新的 `channels profile` 的 `generation` .
+
+这很类似于 `apt update` . (有关 Ubuntu 和 NixOS 包管理直接的粗略对比可以查看[这篇文章](https://nixos.wiki/wiki/Cheatsheet))
+
+## 3.10 结论
+
+我们已经学习到如何查询用户环境并通过安装和卸载软件来管理它. 如果您阅读了[手册](https://nixos.org/nix/manual/#operation-upgrade), 升级软件也同样直截了当.
+
+每次我们更改环境的时候, 新的 `generation` 就会被创建, 切换 `generation` 也简单快速.
+
+然后然后我们学习了如何查询 `store` . 我们查看了 `store` 路径中的依赖和被依赖的关系.
+
+我们看到了如果使用符号链接来组合 `Nix store` 的路径, 这是很有用的技巧.
+
+与编程语言的快速类比: 您拥有包含所有对象的堆, 这类似于 `Nix store` ; 您拥有对象到对象的映射, 这很像 `derivation` . 这是一个暗示性的比喻, 但是这会不会是正确的道路呢?
+
+## 3.11 下一个 Pill
+
+... 我们将会学习 `Nix language` 的基本语法. `Nix language` 是一个用来描述如何构建 `derivation` , 它是一切的基础, 包括 `NixOS` . 因此理解它的语法和语义非常重要.
 
 > Working In Progress
 
