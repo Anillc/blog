@@ -17,7 +17,7 @@ Version 20210221125542-f1acd7e
 
 # 前言
 
-这是由 **Luca Bruno** (Lethalman) 在 2014 和 2015 年在博客上写的一系列文章. 这些文章以很短的章节 (被称为 `pill`) 介绍了 `Nix` 包管理器和 `Nixpkgs` 包集合.
+这是由 **Luca Bruno** (Lethalman) 在 2014 和 2015 年在博客上写的一系列文章. 这些文章以很短的章节 (被称为 `Pill`) 介绍了 `Nix` 包管理器和 `Nixpkgs` 包集合.
 
 `Nix Pills` 被认为是对 `nix` 的经典介绍，所以 2017 年 Graham Christensen (grahamc / gchristensen) 和其他贡献者试图把它迁移到现在的格式.
 
@@ -65,7 +65,7 @@ Version 20210221125542-f1acd7e
 
 ## 1.4 纯函数式
 
-`Nix` 对全局状态不做任何的猜测, 这有很多的好处, 但当然也有一些缺点 `Nix` 的核心是 `Nix store` , 通常情况下位于 `/nix/store` , 还有一些工具来管理 `store` . 在 `Nix` 里有一个 `derivation` 的概念而不是包. 一开始这些区别可能很微妙, 所以我会经常交替使用这些词.
+`Nix` 对全局状态不做任何的猜测, 这有很多的好处, 也有一些缺点. `Nix` 的核心是 `Nix store` , 通常情况下位于 `/nix/store` , 还有一些工具来管理 `store` . 在 `Nix` 里有一个 `derivation` 的概念而不是包. 一开始这些区别可能很微妙, 所以我会经常交替使用这些词.
 
 `derivations/packages` 以 `/nix/store/hash-name` 的格式存储在 `Nix store` , 其中 `hash` 是用来标识 `derivation` 的唯一散列 (这样的说法不是很准确, 这个问题有一点复杂), `name` 是 `derivation` 的名字.
 
@@ -106,11 +106,11 @@ libc.so.6 => /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib/libc.so.
 
 以 `Firefox` 为例子, 当你在大部分系统上安装 `flash` 之后启动 `Firefox` , `flash` 就开始工作了, 因为 `Firefox` 会在全局路径查找插件.
 
-在 `Nix` 中没有这样的全局路径给 `Firefox` 查找插件, 所以 `Firefox` 必须准确知道 `flash` 的准确安装位置. 我们处理这个问题的方式是封装 `Firefox` 的二进制文件以配置必要的变量来保证 `Firefox` 能找到 `Nix store` 中的 `flash` . 这会产生一个新的 `Firefox derivation` : 注意, 这需要几秒钟的世界并且在运行时让合成变得更困难.
+在 `Nix` 中没有这样的全局路径给 `Firefox` 查找插件, 所以 `Firefox` 必须准确知道 `flash` 的准确安装位置. 我们处理这个问题的方式是封装 `Firefox` 的二进制文件以配置必要的变量来保证 `Firefox` 能找到 `Nix store` 中的 `flash` . 这会产生一个新的 `Firefox derivation` , 这需要几秒钟的时间.
 
 您的数据没有升级/降级脚本, 这种方法没有意义, 因为没有任何 `derivation` 升级了. 使用 `Nix` , 您可以切换到任意用它自己的依赖编译的软件, 但这样做到时候并没有升级或降级的概念.
 
-如果数据的格式发生变化, 那么迁移数据到新的格式仍然是您自己的责任
+如果数据的格式发生变化, 您应该自己负责迁移到新的数据格式.
 
 ## 1.6 结论
 
