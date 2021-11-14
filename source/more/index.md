@@ -31,9 +31,9 @@ __友链：__
 
 - [鹿乃音乐合集](https://kanosuki.com:1224)  
 
-- [MAKjust Minecraft服务器](https://nakjust.com)  
+- [MAKjust Minecraft 服务器](https://nakjust.com)  
 
-- [Anillc的github](https://github.com/Anillc)  
+- [Anillc 的 github](https://github.com/Anillc)  
 
-- [Anillc的爱发电](https://afdian.net/@anillc)  
+- [Anillc 的爱发电](https://afdian.net/@anillc)  
 
