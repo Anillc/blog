@@ -3,37 +3,37 @@ title: 更多
 date: 2020-12-27 00:39:35
 ---
 
-这里放一些友链w  
+这里放一些友链
 
-__友链：__  
+__友链：__
 
-- [日下部 詩](https://www.kskb.eu.org/)  
+- [日下部 詩](https://www.kskb.eu.org/)
 
-- [易姐的博客](https://shakaianee.top/)  
+- [易姐的博客](https://shakaianee.top/)
 
-- [LSC.MOE](https://lsc.moe/)  
+- [LSC.MOE](https://lsc.moe/)
 
-- [ITY's blog](https://7ity.codes/)  
+- [ITY's blog](https://7ity.codes/)
 
-- [長門有希](https://blog.yuki-nagato.com/)  
+- [長門有希](https://blog.yuki-nagato.com/)
 
-- [Moecast](https://blog.cas7.moe/)  
+- [Moecast](https://blog.cas7.moe/)
 
-- [Lss233](https://lss233.com)  
+- [Lss233](https://lss233.com)
 
-- [Lonay](https://lonay.me)  
+- [Lonay](https://lonay.me)
 
-- [加酱](https://blog.lijiakaijun.cyou)  
+- [加酱](https://blog.lijiakaijun.cyou)
 
-- [Thinking Null](https://awsl.blog)  
+- [Thinking Null](https://awsl.blog)
 
-- [鹿乃的猫](https://kano.cat)  
+- [鹿乃的猫](https://kano.cat)
 
-- [鹿乃音乐合集](https://kanosuki.com:1224)  
+- [鹿乃音乐合集](https://kanosuki.com:1224)
 
-- [MAKjust Minecraft 服务器](https://makjust.com)  
+- [MAKjust Minecraft 服务器](https://makjust.com)
 
-- [Anillc 的 github](https://github.com/Anillc)  
+- [Anillc 的 github](https://github.com/Anillc)
 
-- [Anillc 的爱发电](https://afdian.net/@anillc)  
+- [Anillc 的爱发电](https://afdian.net/@anillc)
 
