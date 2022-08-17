@@ -106,5 +106,3 @@ $ ls /nix/store
 <!-- TODO: pkgsCross, install as root -->
 <!-- https://github.com/NixOS/nix/pull/6882 -->
 
-
-
