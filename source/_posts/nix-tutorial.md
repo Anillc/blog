@@ -91,6 +91,8 @@ bash: hello: command not found
 
 > 你可能会在别的地方看到类似于 `nix-env -iA nixpkgs.hello` 的安装指令。我不建议使用 `nix-env`，他会导致你使用的包在不同的 nixpkgs commit 上等问题，之后会给出一些替代方案。
 
+<!-- TODO -->
+
 __nix 做了什么？__
 
 在上面的例子中，我们使用 `nix-shell` 获得了一个带有 [GNU Hello](https://www.gnu.org/software/hello/manual/) 的 shell 环境，退出后便没有 `hello` 了。
@@ -198,5 +200,6 @@ nix pills
 
 ripgrep
 
+cachix
 <!-- TODO: pkgsCross -->
 
