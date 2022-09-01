@@ -202,4 +202,5 @@ ripgrep
 
 cachix
 <!-- TODO: pkgsCross -->
+<!-- TODO: nix-daemon 环境变量 -->
 
