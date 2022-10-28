@@ -7,6 +7,8 @@ date: 2020-12-27 00:39:35
 
 __友链：__
 
+- [XM的小窝](https://kanokano.cn/)
+
 - [結城へんり](https://www.henri.moe/)
 
 - [一穗灯花](https://milena-blog.vercel.app/)
