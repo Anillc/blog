@@ -166,7 +166,9 @@ Profile 是一个用于管理用户、系统环境的功能，它可以实现将
 
 下面的内容将会假设你已经学会了 nix 语言。
 
-# 6. Nixpkgs
+> TODO
+
+<!-- # 6. Nixpkgs
 
 ### callPackage override overrideAttrs overlay
 
@@ -200,7 +202,7 @@ nix pills
 
 ripgrep
 
-cachix
+cachix -->
 <!-- TODO: pkgsCross -->
 <!-- TODO: nix-daemon 环境变量 -->
 
