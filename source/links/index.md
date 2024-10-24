@@ -1,5 +1,5 @@
 ---
-title: 更多
+title: Links
 date: 2020-12-27 00:39:35
 ---
 
@@ -17,9 +17,9 @@ __友链：__
 
 - [易姐的博客](https://shakaianee.top/)
 
-- [LSC.MOE](https://lsc.moe/)
+- [LSC](https://snli.org/)
 
-- [ITY's blog](https://7ity.codes/)
+- [itflakes](https://ity.moe/)
 
 - [長門有希](https://blog.yuki-nagato.com/)
 
@@ -32,14 +32,3 @@ __友链：__
 - [加酱](https://blog.lijiakaijun.cyou)
 
 - [Thinking Null](https://awsl.blog)
-
-- [鹿乃的猫](https://kano.cat)
-
-- [鹿乃音乐合集](https://kanosuki.com:1224)
-
-- [MAKjust Minecraft 服务器](https://makjust.com)
-
-- [Anillc 的 github](https://github.com/Anillc)
-
-- [Anillc 的爱发电](https://afdian.net/@anillc)
-
