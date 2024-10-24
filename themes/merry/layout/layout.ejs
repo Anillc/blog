@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title><%= page.title ? page.title : config.title %></title>
+  <%- favicon_tag(theme.avatar) %>
+  <%- open_graph({
+    image: theme.avatar
+  }) %>
+  <% if (config.feed) { %>
+    <%- feed_tag() %>
+  <% } %>
+  <% if(theme.ga){ %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.ga %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<%= theme.ga %>');
+  </script>
+  <% } %>
+  <%- css([
+    'https://fonts.googleapis.com/icon?family=Material+Icons#',
+    'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css',
+    'https://fastly.jsdelivr.net/gh/sindresorhus/github-markdown-css/github-markdown.css',
+    'https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
+    'css/layout.css',
+  ]) %>
+  <% if (config.syntax_highlighter === 'prismjs'){ %>
+    <%- css([
+      'https://fastly.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-vsc-dark-plus.css',
+      'https://fastly.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.css',
+    ]) %>
+  <% } %>
+  <%- js([
+    'https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js',
+    'https://fastly.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js',
+  ]) %>
+</head>
+
+<body>
+  <%- body %>
+  <div class="markdown-body">
+    <% if(theme.footer){ %>
+    <%- theme.footer %>
+    <br />
+    <% } %>
+    <small>© 2020 <a href="<%- url_for('/') %>"><%= config.author %></a> - Powered By <a href="https://hexo.io">Hexo</a> And <a href="https://github.com/Anillc/merry">Merry</a></small>
+  </div>
+</body>
+
+</html>

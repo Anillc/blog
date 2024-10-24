@@ -1,10 +1,9 @@
-avatar: 'https://gravatar.loli.net/avatar/5df946d48b36e6f8061cdfe7ebcdf75c?s=512'
+avatar: /img/avatar.png
 
 links:
   Github: https://github.com/Anillc
-  Networking: https://ani.llc/networking
-  About: https://ani.llc
-  More: /more
+  About: /about
+  Links: /links
 
 ga: 'G-T5TJQM3LBN'
 
